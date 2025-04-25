@@ -30,17 +30,10 @@ pip install stingray
 # export FC=/opt/homebrew/bin/gfortran-14
 
 
-cc_path=$(which cc)
-export CC=$cc_path #/usr/bin/cc
-
-cxx_path=$(which c++)
-export CXX=$cxx_path #/usr/bin/c++
-
-perl_path=$(which perl)
-export PERL=$perl_path #/usr/bin/perl
-
-fc_path=$(which gfortran)
-export FC=$fc_path #/opt/homebrew/bin/gfortran-14
+export CC=$(which cc)
+export CXX=$(which c++)
+export PERL=$(which perl)
+export FC=$(which gfortran)
 
 export PYTHON=$CONDA_PREFIX/envs/hea/bin/python
 
