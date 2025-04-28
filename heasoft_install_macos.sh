@@ -24,19 +24,12 @@ echo "Installing libraries"
 conda install astropy numpy scipy matplotlib pip
 pip install stingray
 
-#Heasoft stuff
-# export CXX=/usr/bin/c++
-# export PERL=/usr/bin/perl
-# export FC=/opt/homebrew/bin/gfortran-14
-
-
 export CC=$(which cc)
 export CXX=$(which c++)
 export PERL=$(which perl)
 export FC=$(which gfortran)
 
 export PYTHON=$CONDA_PREFIX/envs/hea/bin/python
-
 unset CFLAGS CXXFLAGS FFLAGS LDFLAGS build_alias host_alias
 export PATH="/usr/bin:$PATH"
 
