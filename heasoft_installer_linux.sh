@@ -19,12 +19,14 @@ export PYTHON=/usr/bin/python3
 unset CFLAGS CXXFLAGS FFLAGS LDFLAGS build_alias host_alias
 export PATH="/usr/bin:$PATH"
 
-cd heasoft-6.35.1/BUILD_DIR/
+cd ../heasoft-6.35.1/BUILD_DIR/
 ./configure
 make
 make install
 
-echo "export HEADAS=/path/to/your/installed/heasoft-6.35.1/*x*86*" >> ~/.bashrc
+cd ../x86_64*
+path=$(pwd)
+echo "export HEADAS=$path" >> ~/.bashrc
 echo "source $HEADAS/headas-init.sh" >> ~/.bashrc
 
 
