@@ -10,16 +10,16 @@ conda install astropy numpy scipy matplotlib pip
 
 export PYTHON=$HOME/miniconda3/bin/python3
 
-export CC=/usr/bin/gcc
-export CXX=/usr/bin/g++
-export FC=/usr/bin/gfortran
-export PERL=/usr/bin/perl
+export CC=$(which cc)
+export CXX=$(which c++)
+export PERL=$(which perl)
+export FC=$(which gfortran)
 export PYTHON=/usr/bin/python3
 
 unset CFLAGS CXXFLAGS FFLAGS LDFLAGS build_alias host_alias
 export PATH="/usr/bin:$PATH"
 
-cd ../heasoft-6.35.1/BUILD_DIR/
+cd ../BUILD_DIR/
 ./configure
 make
 make install
@@ -27,7 +27,7 @@ make install
 cd ../x86_64*
 path=$(pwd)
 echo "export HEADAS=$path" >> ~/.bashrc
-echo "source $HEADAS/headas-init.sh" >> ~/.bashrc
+echo "source \$HEADAS/headas-init.sh" >> ~/.bashrc
 
 
 
