@@ -1,5 +1,12 @@
 ##
 ##
+echo "We, will proceed to install heasoft in creating a screen instance "heasoft_install" which will not break the installation process if your machine gets logged out"
+screen -S heasoft_install
+
+cd ../
+heasoft_dir=$(pwd)
+cd $heasoft_dir/BUILD_DIR
+
 
 sudo apt-get -y install libreadline-dev libncurses5-dev ncurses-dev curl \
 libcurl4 libcurl4-gnutls-dev xorg-dev make gcc g++ gfortran perl-modules \
@@ -19,15 +26,17 @@ export PYTHON=/usr/bin/python3
 unset CFLAGS CXXFLAGS FFLAGS LDFLAGS build_alias host_alias
 export PATH="/usr/bin:$PATH"
 
-cd ../BUILD_DIR/
 ./configure
 make
 make install
 
-cd ../x86_64*
-path=$(pwd)
-echo "export HEADAS=$path" >> ~/.bashrc
+architecture_dir=$(echo "$heasoft_dir"/x86_64*)
+echo "####### heasoft installation #######" > ~/.bashrc
+echo "export HEADAS=\"$architecture_dir\"" > ~/.bashrc
 echo "source \$HEADAS/headas-init.sh" >> ~/.bashrc
+
+screen -X -S heasoft_install quit
+echo "Heasoft installation complete."
 
 
 
