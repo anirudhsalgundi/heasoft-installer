@@ -4,6 +4,8 @@ This repository contains automated installation scripts for HEASoft on Linux and
 
 **Prerequisites**: You must download and extract the HEASoft archive file before using these scripts. 
 
+**Note**: These scripts run in a screen session to ensure that the installation process continues even if you get logged out. In order to exit the screen session, you can use `Ctrl + A` followed by `D` to detach from the session. You can reattach to the session later using `screen -r heasoft_install`.
+
 Please write to anirudhsalgundi@gmail.com if you have any questions or need help with the installation process. If you wish to make any contributions or improvements to the scripts, feel free to fork the repository and submit a pull request.
 
 ## Steps to install HEASoft on Linux
